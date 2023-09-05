@@ -8,6 +8,9 @@ def index(request):
     to be compared if newyear. Sets newyear key
     to the returned bool if month and day are 1
     (newyear)
+
+    NOTE: Changing the now.month &/| now.day values
+    may require a server restart
     """
     now = datetime.datetime.now()
     return render(request, "newyear/index.html", {
