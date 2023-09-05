@@ -3,7 +3,8 @@ from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    """Gets and sets the current month and day
+    """http://127.0.0.1:8000/newyear
+    Gets and sets the current month and day
     to be compared if newyear. Sets newyear key
     to the returned bool if month and day are 1
     (newyear)
