@@ -10,8 +10,8 @@ def index(request):
     return render(request, "tasks/index.html", {
         # Information that index.html needs
         "tasks": tasks
-    }
-)
+        }
+                  )
 
 def add(request):
-    return render(request, "tasks/add.html"
+    return render(request, "tasks/add.html")
