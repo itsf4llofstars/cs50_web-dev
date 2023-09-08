@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Global that which will be avail to everything in
 # the project
-tasks = ["foo", "bar", "baz", "buz", "fiz", "buz"]
+tasks = ["foo", "bar", "baz"]
 
 
 # Create your views here.
