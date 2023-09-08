@@ -4,8 +4,19 @@
 <h1>Add tasks</h1>
 <form action="{% url 'tasks:add' %}" method="post">
   {% csrf_token %}
-  <input type="text" name="task">
+  {{ form }}
   <input type="submit">
 </form>
 <a href="{% url 'tasks:index' %}">View Tasks</a><br>
+<hr>
+<p>To check client/server side validation.</p>
+<ol>
+  <li>views.py check/set max_value=10</li>
+  <li>load add task web-page</li>
+  <li>Enter task with priority greater than 10 and submit</li>
+  <li>change views.py max_priority to 5</li>
+  <li>go back to add.html (do not reload)</li>
+  <li>enter task with priorty greater than 5 but less than 11 and submit</li>
+</ol>
+<p>You will see the server side validation at work</p>
 {% endblock %}
