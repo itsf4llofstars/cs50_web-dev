@@ -9,7 +9,6 @@ tasks = ["foo", "bar", "baz"]
 # class that represents the form to be created by django
 class NewTaskForm(forms.Form):
     task = forms.CharField(label="New Task")
-    priority = forms.IntegerField(label="Priority", min_value=1, max_value=10)
 
 
 # Create your views here.
@@ -30,12 +29,10 @@ def add(request):
         form = NewTaskForm(request.POST)
         if form.is_valid():
             # Gets the task the user submitted
-            task = form.cleaned_data("tasks")
+            task = form.cleaned_data["tasks"]
             tasks.append(task)
         else:
             # if bad data send back the data
-            return render(request, "tasks/add.html", {
-                "form": form
-            })
-        
+            return render(request, "tasks/add.html", {"form": form})
+
     return render(request, "tasks/add.html", {"form": NewTaskForm()})
