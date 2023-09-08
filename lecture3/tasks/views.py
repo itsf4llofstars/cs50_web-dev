@@ -29,7 +29,7 @@ def add(request):
         form = NewTaskForm(request.POST)
         if form.is_valid():
             # Gets the task the user submitted
-            task = form.cleaned_data["tasks"]
+            task = form.cleaned_data["task"]
             tasks.append(task)
         else:
             # if bad data send back the data
