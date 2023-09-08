@@ -1,8 +1,10 @@
-{% extends "tasks/layout.html" %} {% block body %}
+{% extends "tasks/layout.html" %}
+
+{% block body %}
 <h1>Add tasks</h1>
-<form action="{ 'add' }" method="post">
-  <input type="text" name="task" />
-  <input type="submit" />
+<form>
+  <input type="text" name="task">
+  <input type="submit">
 </form>
-<a href="{{ '/tasks' }}">View Tasks</a><br />
+<a href="{% url 'tasks:index' %}">View Tasks</a><br>
 {% endblock %}
