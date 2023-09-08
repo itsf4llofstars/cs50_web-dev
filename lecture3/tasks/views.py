@@ -5,6 +5,7 @@ from django.shortcuts import render
 # the project
 tasks = ["foo", "bar", "baz"]
 
+
 # class that represents the form to be created by django
 class NewTaskForm(forms.Form):
     task = forms.CharField(label="New Task")
@@ -24,6 +25,17 @@ def index(request):
 
 
 def add(request):
-    return render(request, "tasks/add.html", {
-        "form": NewTaskForm()
-    })
+    if request.method == "POST":
+        # create a form with the user submitted data
+        form = NewTaskForm(request.POST)
+        if form.is_valid():
+            # Gets the task the user submitted
+            task = form.cleaned_data("tasks")
+            tasks.append(task)
+        else:
+            # if bad data send back the data
+            return render(request, "tasks/add.html", {
+                "form": form
+            })
+        
+    return render(request, "tasks/add.html", {"form": NewTaskForm()})
