@@ -33,7 +33,11 @@ def add(request):
         if form.is_valid():
             # Gets the task the user submitted
             task = form.cleaned_data["task"]
-            tasks.append(task)
+            # tasks.append(task)  # remove when using sessions
+
+            # Using sessions, adds the new tasks added as a list to the end of 
+            # request.session["tasks"]
+            request.session["tasks"] += [task]
             
             # redirect user to tasks/ page after submiting valid task
             return HttpResponseRedirect(reverse("tasks:index"))
