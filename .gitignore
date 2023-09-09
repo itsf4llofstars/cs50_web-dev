@@ -3,3 +3,4 @@ __pycache__/
 .vscode/
 vscode/
 timestamp.txt
+py_gui.py

@@ -1,8 +1,5 @@
-try:
-    from django.http import HttpResponse
-    from django.shortcuts import render
-except ImportError:
-    pass
+from django.http import HttpResponse
+from django.shortcuts import render
 
 
 # def index(request):
